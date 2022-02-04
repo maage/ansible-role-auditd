@@ -27,8 +27,8 @@ freq = {{ auditd_freq }}
 max_log_file = {{ auditd_max_log_file }}
 num_logs = {{ auditd_num_logs }}
 priority_boost = {{ auditd_priority_boost }}
-disp_qos = {{ auditd_disp_qos }}
-dispatcher = {{ auditd_dispatcher }}
+{{ render_option('disp_qos', auditd_disp_qos, 1) -}}
+{{ render_option('dispatcher', auditd_dispatcher, 1) -}}
 name_format = {{ auditd_name_format }}
 {{ render_option('name', auditd_name, 0, 'mydomain') -}}
 max_log_file_action = {{ auditd_max_log_file_action }}

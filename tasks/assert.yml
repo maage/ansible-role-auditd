@@ -391,8 +391,7 @@
   ansible.builtin.assert:
     that:
       - auditd_disp_qos is defined
-      - auditd_disp_qos is string
-      - auditd_disp_qos|lower in [ "lossy", "lossless" ]
+      - (auditd_disp_qos is none) or (auditd_disp_qos is string and auditd_disp_qos|lower in [ "lossy", "lossless" ])
     fail_msg: "auditd_disp_qos must be one of 'lossy', 'lossless'."
     quiet: yes
 
@@ -400,7 +399,7 @@
   ansible.builtin.assert:
     that:
       - auditd_dispatcher is defined
-      - auditd_dispatcher is string
+      - (auditd_dispatcher is none) or (auditd_dispatcher is string)
     quiet: yes
 
 - name: test if auditd_use_upper_values is set correctly
