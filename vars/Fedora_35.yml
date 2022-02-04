@@ -1,0 +1,29 @@
+# Fedora values are in upcase
+auditd_use_upper_values: true
+auditd_rules_file: audit.rules
+
+auditd_buffer_size: 64
+auditd_fail_mode: 1
+auditd_maximum_rate: 0
+auditd_enable_flag: 1
+
+# Fedora defaults differ from main defaults
+auditd_log_format: ENRICHED
+auditd_flush: INCREMENTAL_ASYNC
+auditd_space_left_action: SYSLOG
+auditd_admin_space_left_action: SUSPEND
+auditd_disk_full_action: SUSPEND
+auditd_disk_error_action: SUSPEND
+auditd_name_format: NONE
+auditd_max_log_file_action: ROTATE
+auditd_transport: TCP
+auditd_q_depth: 1200
+auditd_overflow_action: SYSLOG
+auditd_max_restarts: 10
+auditd_plugin_dir: /etc/audit/plugins.d
+auditd_end_of_event_timeout: 2
+
+# Fedora: these are not used
+auditd_disp_qos: null
+auditd_dispatcher: null
+auditd_enable_krb5: null
