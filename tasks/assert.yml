@@ -307,6 +307,14 @@
       - auditd_overflow_action|lower in [ "ignore", "syslog", "suspend", "single", "halt" ]
     quiet: yes
 
+- name: test if auditd_max_restarts is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_max_restarts is defined
+      - auditd_max_restarts is number
+      - auditd_max_restarts >= 0
+    quiet: yes
+
 - name: test if auditd_manage_rules is set correctly
   ansible.builtin.assert:
     that:
