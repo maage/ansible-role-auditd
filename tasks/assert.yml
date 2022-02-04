@@ -315,6 +315,13 @@
       - auditd_max_restarts >= 0
     quiet: yes
 
+- name: test if auditd_plugin_dir is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_plugin_dir is defined
+      - auditd_plugin_dir is string
+    quiet: yes
+
 - name: test if auditd_manage_rules is set correctly
   ansible.builtin.assert:
     that:
