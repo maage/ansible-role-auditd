@@ -272,8 +272,6 @@
       ansible.builtin.assert:
         that:
           - item.file is string
-          - item.keyname is defined
-          - item.keyname is string
         quiet: yes
       loop: "{{ auditd_rules }}"
       loop_control:
@@ -321,6 +319,15 @@
       when:
         - item.filters is defined
         - item.filters is string
+
+    - name: test if item.keyname in auditd_rules is set correctly
+      ansible.builtin.assert:
+        that:
+          - item.keyname is string
+        quiet: yes
+      loop: "{{ auditd_rules }}"
+      when:
+        - item.keyname is defined
 
 - name: test if auditd_disp_qos is set correctly
   ansible.builtin.assert:
