@@ -38,5 +38,6 @@ auditd_distribute_network: "no"
 
 auditd_manage_rules: yes
 auditd_use_upper_values: false
+auditd_rules_file: custom.rules
 
 auditd_default_arch: b64
