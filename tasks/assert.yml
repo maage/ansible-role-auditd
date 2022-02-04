@@ -119,6 +119,13 @@
       - auditd_priority_boost in [ 0, 1, 2, 3, 4 ]
     quiet: yes
 
+- name: test if auditd_name is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_name is defined
+      - (auditd_name is none) or (auditd_name is string)
+    quiet: yes
+
 - name: test if auditd_name_format is set correctly
   ansible.builtin.assert:
     that:

@@ -30,6 +30,7 @@ priority_boost = {{ auditd_priority_boost }}
 disp_qos = {{ auditd_disp_qos }}
 dispatcher = {{ auditd_dispatcher }}
 name_format = {{ auditd_name_format }}
+{{ render_option('name', auditd_name, 0, 'mydomain') -}}
 max_log_file_action = {{ auditd_max_log_file_action }}
 space_left = {{ auditd_space_left }}
 space_left_action = {{ auditd_space_left_action }}

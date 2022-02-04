@@ -1,6 +1,21 @@
 ---
 # tasks file for auditd
 
+- name: Set platform/version specific variables
+  include_vars: "{{ __auditd_vars_file }}"
+  loop:
+    - "{{ ansible_facts['os_family'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}.yml"
+    - >-
+      {{ ansible_facts['distribution'] ~ '_' ~
+      ansible_facts['distribution_major_version'] }}.yml
+    - >-
+      {{ ansible_facts['distribution'] ~ '_' ~
+      ansible_facts['distribution_version'] }}.yml
+  vars:
+    __auditd_vars_file: "{{ role_path }}/vars/{{ item }}"
+  when: __auditd_vars_file is file
+
 - name: import assert.yml
   ansible.builtin.import_tasks: assert.yml
   run_once: yes
