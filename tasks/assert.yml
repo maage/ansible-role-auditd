@@ -269,6 +269,13 @@
       - auditd_krb5_principal is string
     quiet: yes
 
+- name: test if auditd_krb5_key_file is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_krb5_key_file is defined
+      - (auditd_krb5_key_file is none) or (auditd_krb5_key_file is string)
+    quiet: yes
+
 - name: test if auditd_distribute_network is set correctly
   ansible.builtin.assert:
     that:

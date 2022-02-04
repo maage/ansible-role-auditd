@@ -38,6 +38,7 @@ auditd_krb5_principal: auditd
 auditd_distribute_network: "no"
 auditd_tcp_listen_port: null
 auditd_tcp_client_ports: null
+auditd_krb5_key_file: null
 
 auditd_manage_rules: yes
 auditd_use_upper_values: false
