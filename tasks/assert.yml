@@ -417,6 +417,14 @@
       - (auditd_dispatcher is none) or (auditd_dispatcher is string)
     quiet: yes
 
+- name: test if auditd_end_of_event_timeout is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_end_of_event_timeout is defined
+      - auditd_end_of_event_timeout is number
+      - auditd_end_of_event_timeout >= 0
+    quiet: yes
+
 - name: test if auditd_use_upper_values is set correctly
   ansible.builtin.assert:
     that:
