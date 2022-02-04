@@ -299,6 +299,14 @@
       - auditd_q_depth <= 99999
     quiet: yes
 
+- name: test if auditd_overflow_action is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_overflow_action is defined
+      - auditd_overflow_action is string
+      - auditd_overflow_action|lower in [ "ignore", "syslog", "suspend", "single", "halt" ]
+    quiet: yes
+
 - name: test if auditd_manage_rules is set correctly
   ansible.builtin.assert:
     that:
