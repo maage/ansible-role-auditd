@@ -17,6 +17,7 @@
 {%   endif %}
 {% endmacro %}
 
+{# Checked from https://github.com/linux-audit/audit-userspace/blob/master/src/auditd-config.c as of audit-3.0.7 #}
 local_events = {{ auditd_local_events }}
 write_logs = {{ auditd_write_logs }}
 log_file = {{ auditd_log_file }}
