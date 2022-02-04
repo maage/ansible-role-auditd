@@ -265,8 +265,7 @@
   ansible.builtin.assert:
     that:
       - auditd_enable_krb5 is defined
-      - auditd_enable_krb5 is string
-      - auditd_enable_krb5|lower in [ "yes", "no" ]
+      - (auditd_enable_krb5 is none) or (auditd_enable_krb5 is string and auditd_enable_krb5|lower in [ "yes", "no" ])
     quiet: yes
 
 - name: test if auditd_krb5_principal is set correctly
