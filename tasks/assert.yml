@@ -208,6 +208,13 @@
       - auditd_use_libwrap|lower in [ "yes", "no" ]
     quiet: yes
 
+- name: test if auditd_tcp_listen_port is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_tcp_listen_port is defined
+      - (auditd_tcp_listen_port is none) or (auditd_tcp_listen_port is number and auditd_tcp_listen_port >= 1 and auditd_tcp_listen_port <= 65535)
+    quiet: yes
+
 - name: test if auditd_tcp_listen_queue is set correctly
   ansible.builtin.assert:
     that:

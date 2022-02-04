@@ -35,6 +35,7 @@ auditd_tcp_client_max_idle: 0
 auditd_enable_krb5: "no"
 auditd_krb5_principal: auditd
 auditd_distribute_network: "no"
+auditd_tcp_listen_port: null
 
 auditd_manage_rules: yes
 auditd_use_upper_values: false

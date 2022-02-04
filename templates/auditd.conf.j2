@@ -40,6 +40,7 @@ admin_space_left_action = {{ auditd_admin_space_left_action }}
 disk_full_action = {{ auditd_disk_full_action }}
 disk_error_action = {{ auditd_disk_error_action }}
 use_libwrap = {{ auditd_use_libwrap }}
+{{ render_option('tcp_listen_port', auditd_tcp_listen_port, 0, 60) -}}
 tcp_listen_queue = {{ auditd_tcp_listen_queue }}
 tcp_max_per_addr = {{ auditd_tcp_max_per_addr }}
 tcp_client_max_idle = {{ auditd_tcp_client_max_idle }}
