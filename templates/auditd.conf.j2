@@ -51,3 +51,4 @@ tcp_client_max_idle = {{ auditd_tcp_client_max_idle }}
 krb5_principal = {{ auditd_krb5_principal }}
 {{ render_option('krb5_key_file', auditd_krb5_key_file, 0, '/etc/audit/audit.key') -}}
 distribute_network = {{ auditd_distribute_network }}
+q_depth = {{ auditd_q_depth }}

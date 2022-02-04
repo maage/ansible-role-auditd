@@ -290,6 +290,15 @@
       - auditd_distribute_network|lower in [ "yes", "no" ]
     quiet: yes
 
+- name: test if auditd_q_depth is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_q_depth is defined
+      - auditd_q_depth is number
+      - auditd_q_depth >= 0
+      - auditd_q_depth <= 99999
+    quiet: yes
+
 - name: test if auditd_manage_rules is set correctly
   ansible.builtin.assert:
     that:
