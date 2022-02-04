@@ -239,6 +239,13 @@
       - auditd_tcp_max_per_addr <= 1024
     quiet: yes
 
+- name: test if auditd_tcp_client_ports is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_tcp_client_ports is defined
+      - (auditd_tcp_client_ports is none) or (auditd_tcp_client_ports is number and auditd_tcp_client_ports >= 1 and auditd_tcp_client_ports <= 65535) or (auditd_tcp_client_ports is string and auditd_tcp_client_ports is match('^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])-([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]  {2}|655[0-2][0-9]|6553[0-5])$'))
+    quiet: yes
+
 - name: test if auditd_tcp_client_max_idle is set correctly
   ansible.builtin.assert:
     that:
