@@ -1,4 +1,21 @@
 {{ ansible_managed | comment }}
+{% macro render_option(key, value, upper, default) %}
+{%   if value is defined and value != None %}
+{%     if value is sameas true %}
+{{ key }} yes
+{%     elif value is sameas false %}
+{{ key }} no
+{%     elif value is string and upper and auditd_use_upper_values %}
+{{ key }} = {{ value|upper }}
+{%     else %}
+{{ key }} = {{ value }}
+{%     endif %}
+{%   else %}
+{%     if default is defined %}
+##{{ key }} = {{ default }}
+{%     endif %}
+{%   endif %}
+{% endmacro %}
 
 local_events = {{ auditd_local_events }}
 write_logs = {{ auditd_write_logs }}
