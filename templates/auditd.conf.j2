@@ -46,6 +46,7 @@ tcp_listen_queue = {{ auditd_tcp_listen_queue }}
 tcp_max_per_addr = {{ auditd_tcp_max_per_addr }}
 {{ render_option('tcp_client_ports', auditd_tcp_client_ports, 0, '1024-65535') -}}
 tcp_client_max_idle = {{ auditd_tcp_client_max_idle }}
+{{ render_option('transport', auditd_transport, 1) -}}
 enable_krb5 = {{ auditd_enable_krb5 }}
 krb5_principal = {{ auditd_krb5_principal }}
 {{ render_option('krb5_key_file', auditd_krb5_key_file, 0, '/etc/audit/audit.key') -}}

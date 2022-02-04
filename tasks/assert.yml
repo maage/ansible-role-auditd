@@ -254,6 +254,13 @@
       - auditd_tcp_client_max_idle >= 0
     quiet: yes
 
+- name: test if auditd_transport is set correctly
+  ansible.builtin.assert:
+    that:
+      - auditd_transport is defined
+      - (auditd_transport is none) or (auditd_transport is string and auditd_transport|lower in [ "tcp", "krb5" ])
+    quiet: yes
+
 - name: test if auditd_enable_krb5 is set correctly
   ansible.builtin.assert:
     that:
